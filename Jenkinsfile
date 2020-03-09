@@ -36,13 +36,13 @@ pipeline {
             steps {
                 echo 'Building..'
 
-                sh   'mvn clean compile'
+             //   sh   'mvn clean compile'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'mvn test'
+              //  sh 'mvn test'
             }
         }
         stage('Deploy') {
@@ -50,7 +50,7 @@ pipeline {
             script {
             // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
              pom = readMavenPom file: "pom.xml";
-             echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
+             echo "*** File:  group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
              //sh "mvn package -DskipTests=true"
             }
           }
