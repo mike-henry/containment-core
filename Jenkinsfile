@@ -22,7 +22,7 @@ pipeline {
         stage('Initialise') {
             steps {
                 echo '.Initialising..'
-                 sh "mvn package -DskipTests=true"
+
                 sh '''
                  echo "PATH = ${PATH}"
                  echo "M2_HOME = ${M2_HOME}"
@@ -51,7 +51,7 @@ pipeline {
             // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
              pom = readMavenPom file: "pom.xml";
              echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
-
+             //sh "mvn package -DskipTests=true"
             }
           }
         }
