@@ -35,15 +35,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-
                 sh 'mvn clean compile'
-
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                //  sh 'mvn test'
+                sh 'mvn test'
             }
         }
         stage('Package') {
@@ -55,6 +53,9 @@ pipeline {
 
 
         stage('Deploy') {
+            when {
+                branch 'develop'
+            }
             steps {
                 echo 'Deploying..'
                 script {
@@ -82,17 +83,19 @@ pipeline {
                                 credentialsId: NEXUS_CREDENTIAL_ID,
                                 artifacts: [
                                         // Artifact generated such as .jar, .ear and .war files.
-                                        [artifactId: pom.artifactId,
-                                         classifier: '',
-                                         file      : artifactPath,
-                                         type      : pom.packaging],
+                                        [
+                                                artifactId: pom.artifactId,
+                                                classifier: '',
+                                                file      : artifactPath,
+                                                type      : pom.packaging],
                                         // Lets upload the pom.xml file for additional information for Transitive dependencies
-                                        [artifactId: pom.artifactId,
-                                         classifier: '',
-                                         file      : "pom.xml",
-                                         type      : "pom"]
+                                        [
+                                                artifactId: pom.artifactId,
+                                                classifier: '',
+                                                file      : "pom.xml",
+                                                type      : "pom"
+                                        ]
                                 ])
-
                     }
 
 
