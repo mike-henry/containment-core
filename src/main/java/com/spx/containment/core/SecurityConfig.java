@@ -9,15 +9,18 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] ALLOWED_PATHS = {"/css/**", "/webjars/**"};
-    private static final String[] API_PATHS = {"/api/**"};
+  private static final String[] ALLOWED_PATHS = {"/css/**", "/webjars/**"};
+  private static final String[] API_PATHS = {"/api/**"};
 
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        // @formatter:off
-        http.csrf().disable();
-        http.authorizeRequests().antMatchers(API_PATHS).permitAll();
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    // @formatter:off
+    http.csrf()
+        .disable();
+    http.authorizeRequests()
+        .antMatchers(API_PATHS)
+        .permitAll();
 //        http
 //
 //            .oauth2Login()
@@ -27,12 +30,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //            .userInfoEndpoint()
 //            .oidcUserService(new CryptoOidcUserService());
 
-        // @formatter:on
-    }
+    // @formatter:on
+  }
 
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers(ALLOWED_PATHS);
-    }
+  @Override
+  public void configure(WebSecurity web) {
+    web.ignoring()
+        .antMatchers(ALLOWED_PATHS);
+  }
+
+
 }
