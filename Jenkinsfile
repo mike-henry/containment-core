@@ -65,7 +65,7 @@ pipeline {
                     // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
                     pom = readMavenPom file:  "${PROJECT_NAME}-api/pom.xml"
                     // Find built artifact under target folder
-                    filesByGlob = findFiles(glob: "target/*.${pom.packaging}")
+                    filesByGlob = findFiles(glob: "${PROJECT_NAME}-api/target/*.${pom.packaging}")
                     // Print some info from the artifact found
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     // Extract the path from the File found
