@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>containment-core-api</artifactId>
+  <dependencies>
+    <dependency>
+      <artifactId>jackson-annotations</artifactId>
+      <groupId>com.fasterxml.jackson.core</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <groupId>javax.ws.rs</groupId>
+      <scope>compile</scope>
+      <version>2.0.1</version>
+    </dependency>
+    <dependency>
+      <artifactId>javax.annotation-api</artifactId>
+      <groupId>javax.annotation</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>neo4j-ogm-core</artifactId>
+      <groupId>org.neo4j</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>jakarta.validation-api</artifactId>
+      <groupId>jakarta.validation</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>lombok</artifactId>
+      <groupId>org.projectlombok</groupId>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+  <groupId>com.spx.containment</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>jar</packaging>
+  <parent>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <relativePath/>
+    <version>2.2.4.RELEASE</version> <!-- lookup parent from repository -->
+  </parent>
+  <version>0.0.1-SNAPSHOT</version>
+
+</project>

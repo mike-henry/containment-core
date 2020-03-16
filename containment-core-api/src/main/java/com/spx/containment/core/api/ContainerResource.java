@@ -11,7 +11,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import org.springframework.transaction.annotation.Transactional;
 
 public interface ContainerResource {
 
@@ -26,15 +25,17 @@ public interface ContainerResource {
 
   @POST
   @Consumes(APPLICATION_JSON)
-  @PermitAll /// temp
-  @Transactional
+  @PermitAll
+    /// temp
+
   void createTree(ContainerView[] containerViews);
 
   @Path(PARENT_RESOURCE_NAME)
   @POST
   @Consumes(APPLICATION_JSON)
-  @PermitAll /// temp
-  @Transactional
+  @PermitAll
+    /// temp
+
   void createContainer(@PathParam("parent") @NotNull String parentName,
       @NotNull Container container);
 
