@@ -1,6 +1,6 @@
 package com.spx.containment.core.actions;
 
-import com.spx.containment.core.model.Container;
+import com.spx.containment.core.api.model.Container;
 import com.spx.containment.core.services.ContainerServices;
 import java.util.concurrent.Callable;
 

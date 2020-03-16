@@ -1,8 +1,8 @@
 package com.spx.containment.core;
 
 import com.spx.containment.core.api.mapping.ContainerJsonProvider;
-import com.spx.containment.core.api.ContainerResource;
 import com.spx.containment.core.api.monitor.ContainerEventMonitor;
+import com.spx.containment.core.security.filters.OpenIdConnectAuthenticationFilter;
 import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.config.SwaggerConfigLocator;
 import io.swagger.jaxrs.config.SwaggerContextService;
@@ -28,21 +28,13 @@ public class JerseyConfig extends ResourceConfig {
     SwaggerConfigLocator.getInstance()
         .putConfig(SwaggerContextService.CONFIG_ID_DEFAULT, swaggerConfig);
     register(LoggingFeature.class);
-    register(ContainerResource.class);
     register(ContainerEventMonitor.class);
-
-//    JacksonJaxbJsonProvider provider = new JacksonJaxbJsonProvider();
-//    provider.setMapper(new SubClassObjectMapper());
-//    register(provider);
     register(JacksonFeature.class);
-
-//        register(AuthenticationFilter.class);
-    // register(CORSFilter.class);
+    register(OpenIdConnectAuthenticationFilter.class);
+    //   register(CORSFilter.class);
     packages(true, getClass().getPackage()
         .getName(), ApiListingResource.class.getPackage()
         .getName());
-
-
   }
 
   static class JacksonFeature implements Feature {

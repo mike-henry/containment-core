@@ -1,8 +1,8 @@
 package com.spx.containment.core.services;
 
 import com.spx.containment.core.exceptions.NotFoundException;
-import com.spx.containment.core.model.Container;
-import com.spx.containment.core.model.Global;
+import com.spx.containment.core.api.model.Container;
+import com.spx.containment.core.api.model.Global;
 import com.spx.containment.core.persistance.ContainerRepository;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -58,7 +58,7 @@ public class ContainerServices {
     System.err.println("Count 1 " + c1);
     System.err.println("Count 2 " + c2);
 
-    return repository.findByReference(reference)
+    return repository.findByReference(reference, 1)
         .orElseThrow(
             () -> new NotFoundException(String.format("reference not found :%s", reference)));
   }

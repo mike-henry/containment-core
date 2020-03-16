@@ -1,4 +1,4 @@
-package com.spx.containment.core.model;
+package com.spx.containment.core.api.model;
 
 import org.neo4j.ogm.annotation.NodeEntity;
 

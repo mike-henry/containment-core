@@ -9,71 +9,72 @@ import java.util.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ContainerView {
-    @JsonIgnore
-    Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    private Set<String> children = new HashSet<String>();
+  @JsonIgnore
+  private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    private String parent;
+  private Set<String> children = new HashSet<String>();
 
-    private String name = "DUMMY";
+  private String parent;
 
-    private String type;
+  private String name = "N/A";
 
-    private String reference;
+  private String type;
 
-    public String getName() {
-        return name;
-    }
+  private String reference;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public Set<String> getChildren() {
-        return Collections.unmodifiableSet(children);
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setChildren(Set<String> k) {
-        children = k;
-    }
+  public Set<String> getChildren() {
+    return Collections.unmodifiableSet(children);
+  }
 
-    public String getParent() {
-        return parent;
-    }
+  public void setChildren(Set<String> k) {
+    children = k;
+  }
 
-    public void setParent(String newParent) {
-        parent = newParent;
-    }
+  public String getParent() {
+    return parent;
+  }
 
-    public void addChild(String child) {
-        children.add(child);
-    }
+  public void setParent(String newParent) {
+    parent = newParent;
+  }
 
-    public String getType() {
-        return type;
-    }
+  public void addChild(String child) {
+    children.add(child);
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  public String getType() {
+    return type;
+  }
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return additionalProperties;
-    }
+  public void setType(String type) {
+    this.type = type;
+  }
 
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        additionalProperties.put(name, value);
-    }
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
 
-    public String getReference() {
-        return reference;
-    }
+  @JsonAnySetter
+  public void setAdditionalProperty(String name, Object value) {
+    additionalProperties.put(name, value);
+  }
 
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
+  public String getReference() {
+    return reference;
+  }
+
+  public void setReference(String reference) {
+    this.reference = reference;
+  }
 
 }

@@ -1,52 +1,68 @@
 spring:
-    security:
-        oauth2:
-            client:
-                registration:
-                    facebook:
-                        client-id: 329893387589100
-                        client-secret: c8433775f2d257f7dea093957368c7cf
-                        scope: public_profile,email,user_location
-                    google:
-                        client-id: 566746547955-p61061irrafjgv1mh0lh77t0ss72tg1i.apps.googleusercontent.com
-                        client-secret: TIaTzstyZl8KZ6h35tiAVuHm
-                        client-name: gigadi-gigadi
-                    auth0:
-                        client-id: FbJ7zjAOWBKMSx2wc1d8H6bqrw5pd3Fh
-                        client-secret: 4nDncmWuA3C2L3DFaGQO1O9fU8wyi1q0MeyRq4jOkgaZQX_6Kk5Vcu4wjKpdbQSr
-                        client-name: auth0
-                        scope: openid,email,nickname
-                        authorization-grant-type: authorization_code
-                        redirect-uri: http://localhost:8080/
-                provider:
-                    auth0:
-                        authorization-uri: https://dev-n1tvxt-z.eu.auth0.com/authorize
-                        token-uri: https://dev-n1tvxt-z.eu.auth0.com/oauth/token
-                        user-info-uri: https://dev-n1tvxt-z.eu.auth0.com/userinfo
-                        jwk-set-uri: https://dev-n1tvxt-z.eu.auth0.com/.well-known/jwks.json
-                        userNameAttribute: email
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: 329893387589100
+            client-secret: c8433775f2d257f7dea093957368c7cf
+            scope: public_profile,email,user_location
+          google:
+            client-id: 566746547955-p61061irrafjgv1mh0lh77t0ss72tg1i.apps.googleusercontent.com
+            client-secret: TIaTzstyZl8KZ6h35tiAVuHm
+            client-name: gigadi-gigadi
+          auth0:
+            client-id: FbJ7zjAOWBKMSx2wc1d8H6bqrw5pd3Fh
+            client-secret: 4nDncmWuA3C2L3DFaGQO1O9fU8wyi1q0MeyRq4jOkgaZQX_6Kk5Vcu4wjKpdbQSr
+            client-name: auth0
+            scope: openid,email,nickname
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/
+          keycloak:
+            client-id: containment
+            client-secret: 652ff5e8-e1c0-4d1f-8044-382808d9b199
+            client-name: keycloak
+            scope: openid,email
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/
+        provider:
+          auth0:
+            authorization-uri: https://dev-n1tvxt-z.eu.auth0.com/authorize
+            token-uri: https://dev-n1tvxt-z.eu.auth0.com/oauth/token
+            user-info-uri: https://dev-n1tvxt-z.eu.auth0.com/userinfo
+            jwk-set-uri: https://dev-n1tvxt-z.eu.auth0.com/.well-known/jwks.json
+            userNameAttribute: email
+          keycloak:
+            authorization-uri: http://localhost:85/auth/realms/Applications/protocol/openid-connect/auth
+            token-uri: http://localhost:85/auth/realms/Applications/protocol/openid-connect/token
+            user-info-uri: http://localhost:85/auth/realms/Applications/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:85/auth/realms/Applications/protocol/openid-connect/certs
+            userNameAttribute: email
+
 application:
-    persistence:
-        user: test
-        password: password
-        host: localhost
-        pool-size: 150
-    security:
-        client: auth0
-        roles:
-            power: ROLE_POWER
-            admin: ROLE_ADMIN
-            profile: ROLE_USER
-    websocket:
-        session:
-            timeout: 12000000
-            period: 600000
+  persistence:
+    user: test
+    password: password
+    host: localhost
+    pool-size: 150
+  security:
+    token-roles: 'realm_access'
+    client: keycloak
+    jws-algorithm: RS256
+    roles:
+      power: power
+      admin: admin
+      user: user
+  websocket:
+    session:
+      timeout: 12000000
+      period: 600000
 
 logging:
-    level:
-        root: INFO
-        com.memorynotfound: DEBUG
-        org.springframework.web: DEBUG
-        org.springframework.security: DEBUG
-        org.springframework.web.client.RestTemplate: DEBUG
-        com.spx.containment.core.api: DEBUG
+  level:
+    root: INFO
+    com.memorynotfound: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    com.spx.containment.core.api: DEBUG

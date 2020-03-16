@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.spx.containment.core.api.mapping.SubClassObjectMapper;
-import com.spx.containment.core.model.Box;
-import com.spx.containment.core.model.Container;
-import com.spx.containment.core.model.Location;
+import com.spx.containment.core.api.model.Box;
+import com.spx.containment.core.api.model.Container;
+import com.spx.containment.core.api.model.Location;
 import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;

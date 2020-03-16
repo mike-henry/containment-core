@@ -2,7 +2,7 @@ package com.spx.containment.core;
 
 import static org.mockito.Mockito.mock;
 
-import com.spx.containment.core.model.Global;
+import com.spx.containment.core.api.model.Global;
 import com.spx.containment.core.persistance.ContainerRepository;
 import java.util.Optional;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.spx.containment.core.model;
+package com.spx.containment.core.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
@@ -59,13 +59,14 @@ public class Container extends AbstractReferencable {
     return getAncestors().contains(child);
   }
 
+  @JsonIgnore
   private List<Container> getAncestors() {
     Container presentAncestor = this;
     List<Container> result = new ArrayList<Container>();
     // result.add(presentAncestor);
     while (presentAncestor.getParent()
         .isPresent()) {
-      log.error(presentAncestor.getName());
+      log.debug(presentAncestor.getName());
       presentAncestor = presentAncestor.getParent()
           .get();
       result.add(presentAncestor);

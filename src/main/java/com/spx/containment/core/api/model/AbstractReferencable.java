@@ -1,4 +1,4 @@
-package com.spx.containment.core.model;
+package com.spx.containment.core.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

@@ -1,7 +1,7 @@
 package com.spx.containment.core.actions;
 
 import com.spx.containment.core.api.ContainerView;
-import com.spx.containment.core.model.Container;
+import com.spx.containment.core.api.model.Container;
 import com.spx.containment.core.services.ContainerEventListener;
 import com.spx.containment.core.services.ContainerServices;
 import com.spx.containment.core.services.ModelToViewAdaptor;

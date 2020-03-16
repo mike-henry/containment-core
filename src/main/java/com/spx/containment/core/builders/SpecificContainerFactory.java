@@ -1,16 +1,16 @@
 package com.spx.containment.core.builders;
 
 import com.spx.containment.core.api.ContainerView;
-import com.spx.containment.core.model.Container;
+import com.spx.containment.core.api.model.Container;
 
 public interface SpecificContainerFactory<T extends Container> {
 
-    String getType();
+  String getType();
 
-    Class<T> getContainerClass();
+  Class<T> getContainerClass();
 
-    T createContainerFromView(ContainerView view);
+  T createContainerFromView(ContainerView view);
 
-    ContainerView createViewContainerContainer(T container);
+  ContainerView createViewContainerContainer(T container);
 
 }

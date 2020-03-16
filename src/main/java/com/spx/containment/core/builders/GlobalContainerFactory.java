@@ -1,7 +1,7 @@
 package com.spx.containment.core.builders;
 
 import com.spx.containment.core.api.ContainerView;
-import com.spx.containment.core.model.Global;
+import com.spx.containment.core.api.model.Global;
 import com.spx.containment.core.services.ContainerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

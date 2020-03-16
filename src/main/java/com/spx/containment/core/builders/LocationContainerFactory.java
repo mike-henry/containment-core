@@ -1,36 +1,36 @@
 package com.spx.containment.core.builders;
 
 import com.spx.containment.core.api.ContainerView;
-import com.spx.containment.core.model.Location;
+import com.spx.containment.core.api.model.Location;
 import org.springframework.stereotype.Component;
 
 @Component
 public class LocationContainerFactory implements SpecificContainerFactory<Location> {
 
-    @Override
-    public String getType() {
+  @Override
+  public String getType() {
 
-        return "Location";
-    }
+    return "Location";
+  }
 
-    @Override
-    public Location createContainerFromView(ContainerView view) {
-        Location result = new Location();
+  @Override
+  public Location createContainerFromView(ContainerView view) {
+    Location result = new Location();
 
-        return result;
-    }
+    return result;
+  }
 
-    @Override
-    public Class<Location> getContainerClass() {
+  @Override
+  public Class<Location> getContainerClass() {
 
-        return Location.class;
-    }
+    return Location.class;
+  }
 
-    @Override
-    public ContainerView createViewContainerContainer(Location container) {
-        ContainerView result = new ContainerView();
+  @Override
+  public ContainerView createViewContainerContainer(Location container) {
+    ContainerView result = new ContainerView();
 
-        return result;
-    }
+    return result;
+  }
 
 }

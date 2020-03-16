@@ -37,7 +37,8 @@ public class SubClassObjectMapper extends ObjectMapper {
     findClassesToRegister().stream()
         .forEach(type -> {
           JsonTypeInfo jsonTypeInfo = type.getAnnotation(JsonTypeInfo.class);
-          log.debug("registering type {} as {} ", type.getName(), type.getSimpleName());
+          log.debug("registering type {} as {} in json mapper", type.getName(),
+              type.getSimpleName());
           registerSubtypes(new NamedType(type, type.getSimpleName()));
         });
   }
