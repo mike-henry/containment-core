@@ -46,6 +46,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'cat ${SETTINGS_XML}'
                 sh 'mvn -s ${SETTINGS_XML} clean compile'
             }
         }
