@@ -20,14 +20,15 @@ pipeline {
 
        PROJECT_NAME = "containment-core"
 
+       SETTINGS_XML = './settings.xml'
+
+
     }
 
     stages {
         stage('Initialise') {
-
-
             steps {
-                configFileProvider([configFile(fileId: '1a513824-61ee-4d76-9dea-0fcac438f523', variable: 'MAVEN_SETTINGS')]){
+                configFileProvider([configFile(fileId: '1a513824-61ee-4d76-9dea-0fcac438f523', variable: 'MAVEN_SETTINGS_FILE')]){
                 echo '.Initialising..'
 
                 sh '''
@@ -36,27 +37,28 @@ pipeline {
                  echo "MAVEN_HOME = ${MAVEN_HOME}"
                  echo "JAVA_HOME = ${JAVA_HOME}"
                  echo "MAVEN_SETTINGS ${MAVEN_SETTINGS}"
+                 cp  ${MAVEN_SETTINGS} ${SETTINGS_XML}
                  '''
+
+
             }}
         }
         stage('Build') {
             steps {
-               configFileProvider([configFile(fileId: '1a513824-61ee-4d76-9dea-0fcac438f523', variable: 'MAVEN_SETTINGS')]){
                 echo 'Building..'
-                sh 'mvn -s ${MAVEN_SETTINGS} clean compile'
-                }
+                sh 'mvn -s ${SETTINGS_XML} clean compile'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'mvn -s ${MAVEN_SETTINGS} test'
+                sh 'mvn -s ${SETTINGS_XML} test'
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging..'
-                sh "mvn -s ${MAVEN_SETTINGS} package -DskipTests=true"
+                sh "mvn -s ${SETTINGS_XML} package -DskipTests=true"
             }
         }
 
