@@ -10,30 +10,29 @@ import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
-import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.ResourceInfo;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.Provider;
 import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 
-@Provider
+@Component
 @Priority(Priorities.AUTHORIZATION)
-public class AuthorizationFilter implements ContainerRequestFilter {
+public class AuthorizationRequestFilter implements ApplicationRequestFilter {
 
 
-  private static final Logger logger = LoggerFactory.getLogger(AuthorizationFilter.class);
+  private static final Logger logger = LoggerFactory.getLogger(AuthorizationRequestFilter.class);
 
   // private final JWTTokenAuthenticator authenticator;
   private final ResourceInfo resourceInfo;
 
 
-  public AuthorizationFilter(@Autowired JWTTokenAuthenticator authenticator,
+  public AuthorizationRequestFilter(@Autowired JWTTokenAuthenticator authenticator,
       @Context ResourceInfo resourceInfo) {
     // this.authenticator = authenticator;
     this.resourceInfo = resourceInfo;

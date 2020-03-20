@@ -9,9 +9,15 @@
       <plugin>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <groupId>org.springframework.boot</groupId>
+        <configuration>
+          <mainClass>com.spx.containment.core.ContainmentCoreApplication</mainClass>
+        </configuration>
       </plugin>
+
     </plugins>
   </build>
+
+
   <dependencies>
 
     <dependency>
@@ -21,76 +27,9 @@
     </dependency>
 
     <dependency>
-      <artifactId>spring-boot-starter-data-neo4j</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-    <dependency>
-      <artifactId>spring-boot-configuration-processor</artifactId>
-      <groupId>org.springframework.boot</groupId>
-      <optional>true</optional>
-    </dependency>
-
-
-    <dependency>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-    <dependency>
-      <artifactId>oauth2-client</artifactId>
-      <groupId>org.glassfish.jersey.security</groupId>
-      <version>2.27</version>
-    </dependency>
-    <dependency>
-      <artifactId>spring-boot-starter-oauth2-client</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-
-    <dependency>
-      <artifactId>spring-boot-starter-jersey</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-    <dependency>
-      <artifactId>javax.websocket-api</artifactId>
-      <groupId>javax.websocket</groupId>
-      <scope>provided</scope>
-      <version>1.1</version>
-    </dependency>
-    <dependency>
-      <artifactId>spring-boot-starter-security</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-    <dependency>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-
-    <dependency>
-      <artifactId>springfox-swagger2</artifactId>
-      <groupId>io.springfox</groupId>
-      <version>2.9.2</version>
-    </dependency>
-    <dependency>
-      <artifactId>springfox-swagger-ui</artifactId>
-      <groupId>io.springfox</groupId>
-      <version>2.9.2</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/io.swagger/swagger-jersey2-jaxrs -->
-    <dependency>
-      <artifactId>swagger-jersey2-jaxrs</artifactId>
-      <groupId>io.swagger</groupId>
-      <version>1.5.8</version>
-    </dependency>
-
-    <dependency>
-      <artifactId>lombok</artifactId>
-      <groupId>org.projectlombok</groupId>
-      <optional>true</optional>
-    </dependency>
-
-    <dependency>
-      <artifactId>reflections</artifactId>
-      <groupId>org.reflections</groupId>
-      <version>0.9.12</version>
+      <groupId>com.spx.containment</groupId>
+      <artifactId>containment-jaxrs-spring-boot-starter</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
 
     <dependency>
@@ -114,6 +53,7 @@
       <groupId>org.springframework.security</groupId>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <artifactId>mockito-core</artifactId>
       <groupId>org.mockito</groupId>
@@ -124,13 +64,6 @@
       <groupId>junit</groupId>
       <scope>test</scope>
     </dependency>
-
-    <dependency>
-      <artifactId>spring-boot-starter-websocket</artifactId>
-      <groupId>org.springframework.boot</groupId>
-    </dependency>
-
-
   </dependencies>
 
   <dependencyManagement>
@@ -145,9 +78,7 @@
     </dependencies>
   </dependencyManagement>
 
-
   <groupId>com.spx.containment</groupId>
-
 
   <modelVersion>4.0.0</modelVersion>
 

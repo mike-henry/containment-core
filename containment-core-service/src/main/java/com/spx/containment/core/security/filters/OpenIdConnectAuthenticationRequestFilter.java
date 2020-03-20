@@ -9,27 +9,26 @@ import javax.annotation.Priority;
 import javax.security.sasl.AuthenticationException;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
-import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.ResourceInfo;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.Provider;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-@Provider
+@Component
 @Priority(Priorities.AUTHENTICATION)
 @Slf4j
-public class OpenIdConnectAuthenticationFilter implements ContainerRequestFilter {
+public class OpenIdConnectAuthenticationRequestFilter implements ApplicationRequestFilter {
 
   private final JWTTokenAuthenticator authenticator;
 
   private final AuthenticationCreator authenticationCreator;
 
-  public OpenIdConnectAuthenticationFilter(@Autowired JWTTokenAuthenticator authenticator,
+  public OpenIdConnectAuthenticationRequestFilter(@Autowired JWTTokenAuthenticator authenticator,
       @Autowired AuthenticationCreator authenticationCreator, @Context ResourceInfo info) {
     this.authenticator = authenticator;
     this.authenticationCreator = authenticationCreator;
@@ -39,7 +38,7 @@ public class OpenIdConnectAuthenticationFilter implements ContainerRequestFilter
   @SneakyThrows
   @Override
   public void filter(ContainerRequestContext context) throws IOException {
-
+    System.err.println("FILTERING");
     if (context.getMethod()
         .equals("OPTIONS")) {
       return;

@@ -14,7 +14,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @SpringBootApplication
 @EnableSwagger2
+
 public class ContainmentCoreApplication {
+
 
   public static void main(String[] args) {
     SpringApplication.run(ContainmentCoreApplication.class, args);
@@ -29,4 +31,5 @@ public class ContainmentCoreApplication {
         .paths(PathSelectors.any())
         .build();
   }
+
 }

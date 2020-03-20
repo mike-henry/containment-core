@@ -23,6 +23,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,11 +32,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Consumes({APPLICATION_JSON, TEXT_PLAIN})
 @Path(ContainerResourceService.RESOURCE)
 @Api(ContainerResourceService.RESOURCE)
-
+@Slf4j
 public class ContainerResourceService implements ContainerResource {
 
   private final ContainerActionFactory actionFactory;
   private final ActionExecutor executor;
+//  @Autowired
+//  Logging logging;
 
 
   @Autowired
@@ -55,6 +58,7 @@ public class ContainerResourceService implements ContainerResource {
     final CreateContainerTreeAction action = actionFactory.buildCreateContainerTreeAction(
         containerViews);
     executor.call(action);
+    log.debug("test");
   }
 
   @Override

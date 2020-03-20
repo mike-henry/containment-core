@@ -61,8 +61,5 @@ application:
 logging:
   level:
     root: INFO
-    com.memorynotfound: DEBUG
-    org.springframework.web: DEBUG
-    org.springframework.security: DEBUG
     org.springframework.web.client.RestTemplate: DEBUG
     com.spx.containment.core.api: DEBUG
