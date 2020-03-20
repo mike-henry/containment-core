@@ -36,8 +36,8 @@ pipeline {
                  echo "M2_HOME = ${M2_HOME}"
                  echo "MAVEN_HOME = ${MAVEN_HOME}"
                  echo "JAVA_HOME = ${JAVA_HOME}"
-                 echo "MAVEN_SETTINGS ${MAVEN_SETTINGS}"
-                 cp  ${MAVEN_SETTINGS} ${SETTINGS_XML}
+                 echo "MAVEN_SETTINGS_FILE ${MAVEN_SETTINGS_FILE}"
+                 cp  ${MAVEN_SETTINGS_FILE} ${SETTINGS_XML}
                  '''
 
 
