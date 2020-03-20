@@ -4,40 +4,15 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>containment-core-api</artifactId>
 
-
   <dependencies>
     <dependency>
-      <groupId>com.spx.containment</groupId>
       <artifactId>containment-jaxrs-spring-boot-starter</artifactId>
+      <groupId>com.spx.containment</groupId>
       <version>1.0-SNAPSHOT</version>
-    </dependency>
-
-    <dependency>
-      <artifactId>jackson-annotations</artifactId>
-      <groupId>com.fasterxml.jackson.core</groupId>
-    </dependency>
-    <dependency>
-      <artifactId>javax.ws.rs-api</artifactId>
-      <groupId>javax.ws.rs</groupId>
-      <scope>compile</scope>
-      <version>2.0.1</version>
-    </dependency>
-    <dependency>
-      <artifactId>javax.annotation-api</artifactId>
-      <groupId>javax.annotation</groupId>
     </dependency>
     <dependency>
       <artifactId>neo4j-ogm-core</artifactId>
       <groupId>org.neo4j</groupId>
-    </dependency>
-    <dependency>
-      <artifactId>jakarta.validation-api</artifactId>
-      <groupId>jakarta.validation</groupId>
-    </dependency>
-    <dependency>
-      <artifactId>lombok</artifactId>
-      <groupId>org.projectlombok</groupId>
-      <optional>true</optional>
     </dependency>
   </dependencies>
   <groupId>com.spx.containment</groupId>
@@ -49,7 +24,6 @@
     <relativePath/>
     <version>2.2.4.RELEASE</version> <!-- lookup parent from repository -->
   </parent>
+
   <version>0.0.1-SNAPSHOT</version>
-
-
 </project>
