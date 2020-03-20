@@ -11,7 +11,7 @@ import com.spx.containment.core.actions.GetContainerAction;
 import com.spx.containment.core.actions.GetContainerTreeNodeAction;
 import com.spx.containment.core.actions.RemoveContainerAction;
 import com.spx.containment.core.api.model.Container;
-import com.spx.containment.core.security.ApplicationRoles;
+import com.spx.containment.general.jaxrs.security.ApplicationRoles;
 import io.swagger.annotations.Api;
 import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
@@ -37,9 +37,6 @@ public class ContainerResourceService implements ContainerResource {
 
   private final ContainerActionFactory actionFactory;
   private final ActionExecutor executor;
-//  @Autowired
-//  Logging logging;
-
 
   @Autowired
   public ContainerResourceService(ContainerActionFactory actionFactory, ActionExecutor executor) {

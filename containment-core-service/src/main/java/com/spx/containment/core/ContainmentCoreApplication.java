@@ -12,7 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @Configuration
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.spx"})
 @EnableSwagger2
 
 public class ContainmentCoreApplication {

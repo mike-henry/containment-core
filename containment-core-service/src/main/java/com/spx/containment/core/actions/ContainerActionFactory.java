@@ -7,12 +7,10 @@ import com.spx.containment.core.services.ContainerServices;
 import com.spx.containment.core.services.ModelToViewAdaptor;
 import java.util.Set;
 import javax.inject.Inject;
-import javax.inject.Named;
 import org.springframework.stereotype.Component;
 
-@Named
-@Component
 
+@Component
 public class ContainerActionFactory {
 
   private final ModelToViewAdaptor mapper;
