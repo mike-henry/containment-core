@@ -18,6 +18,9 @@ pipeline {
         NEXUS_CREDENTIAL_ID = "nexus-credentials"
 
         PROJECT_NAME = "containment-core"
+
+
+
     }
 
     stages {
@@ -30,28 +33,27 @@ pipeline {
                  echo "M2_HOME = ${M2_HOME}"
                  echo "MAVEN_HOME = ${MAVEN_HOME}"
                  echo "JAVA_HOME = ${JAVA_HOME}"
-                 ls -la
-
+                 echo "MAVEN_SETTINGS ${MAVEN_SETTINGS}"
                  '''
             }
         }
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'mvn clean compile'
+                sh 'mvn -s ${MAVEN_SETTINGS} clean compile'
                 
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'mvn test'
+                sh 'mvn -s ${MAVEN_SETTINGS} test'
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging..'
-                sh "mvn package -DskipTests=true"
+                sh "mvn -s ${MAVEN_SETTINGS} package -DskipTests=true"
             }
         }
 
