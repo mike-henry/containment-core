@@ -25,7 +25,10 @@ pipeline {
 
     stages {
         stage('Initialise') {
+
+
             steps {
+                configFileProvider([configFile(fileId: '4f2e949a-3524-4196-b771-e0408051027d', variable: 'MAVEN_GLOBAL_SETTINGS')]){
                 echo '.Initialising..'
 
                 sh '''
@@ -35,7 +38,7 @@ pipeline {
                  echo "JAVA_HOME = ${JAVA_HOME}"
                  echo "MAVEN_SETTINGS ${MAVEN_SETTINGS}"
                  '''
-            }
+            }}
         }
         stage('Build') {
             steps {
