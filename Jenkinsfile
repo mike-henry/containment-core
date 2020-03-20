@@ -5,22 +5,24 @@ pipeline {
         maven 'maven_3'
 
     }
-    environment {
-        // This can be nexus3 or nexus2
-        NEXUS_VERSION = "nexus3"
-        // This can be http or https
-        NEXUS_PROTOCOL = "http"
-        // Where your Nexus is running
-        NEXUS_URL = "nexus:8081"
-        // Repository where we will upload the artifact
-        NEXUS_REPOSITORY = "local-builds"
-        // Jenkins credential id to authenticate to Nexus OSS
-        NEXUS_CREDENTIAL_ID = "nexus-credentials"
+    configFileProvider([configFile(fileId: '1a513824-61ee-4d76-9dea-0fcac438f523', variable: 'MAVEN_SETTINGS')]){
+       environment {
+           // This can be nexus3 or nexus2
+           NEXUS_VERSION = "nexus3"
+           // This can be http or https
+           NEXUS_PROTOCOL = "http"
+           // Where your Nexus is running
+           NEXUS_URL = "nexus:8081"
+           // Repository where we will upload the artifact
+           NEXUS_REPOSITORY = "local-builds"
+           // Jenkins credential id to authenticate to Nexus OSS
+           NEXUS_CREDENTIAL_ID = "nexus-credentials"
 
-        PROJECT_NAME = "containment-core"
+           PROJECT_NAME = "containment-core"
 
+           MAVEN_SETTINGS = "${MAVEN_SETTINGS}"
 
-
+       }
     }
 
     stages {
