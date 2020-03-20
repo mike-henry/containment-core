@@ -5,11 +5,10 @@
   <artifactId>containment-core-api</artifactId>
 
 
-
   <dependencies>
     <dependency>
       <groupId>com.spx.containment</groupId>
-      <artifactId>containment-jaxrs-sprng-boot-starter</artifactId>
+      <artifactId>containment-jaxrs-spring-boot-starter</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
 
