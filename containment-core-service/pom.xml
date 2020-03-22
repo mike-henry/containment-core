@@ -27,6 +27,11 @@
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
+      <artifactId>containment-logging-spring-boot-starter</artifactId>
+      <groupId>com.spx.containment</groupId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
       <artifactId>spring-boot-starter-test</artifactId>
       <exclusions>
         <exclusion>

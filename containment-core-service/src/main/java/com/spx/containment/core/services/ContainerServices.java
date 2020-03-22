@@ -55,8 +55,8 @@ public class ContainerServices {
 
     int c1 = repository.countParentPaths("BC Hallway 21", "Bristol Construction House");
     int c2 = repository.countParentPaths("BC Hallway 21", "Manchester Factory");
-    System.err.println("Count 1 " + c1);
-    System.err.println("Count 2 " + c2);
+    log.error("Count 1 " + c1);
+    log.debug("Count 2 " + c2);
 
     return repository.findByReference(reference, 1)
         .orElseThrow(

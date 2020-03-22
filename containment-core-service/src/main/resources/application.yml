@@ -57,6 +57,12 @@ application:
     session:
       timeout: 12000000
       period: 600000
+  webservices:
+    base-path: /api
+    base-packages: >
+      com.spx.containment.core,
+      com.spx.containment.general,
+      com.spx.containment.logging
 
 logging:
   level:

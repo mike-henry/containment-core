@@ -10,6 +10,13 @@
       <groupId>com.spx.containment</groupId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
+
+    <dependency>
+      <artifactId>containment-logger-spring-boot-starter</artifactId>
+      <groupId>com.spx.containment</groupId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+
     <dependency>
       <artifactId>neo4j-ogm-core</artifactId>
       <groupId>org.neo4j</groupId>
