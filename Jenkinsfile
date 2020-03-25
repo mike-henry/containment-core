@@ -28,7 +28,7 @@ pipeline {
     stages {
         stage('Initialise') {
             steps {
-                configFileProvider([configFile(fileId: '1a513824-61ee-4d76-9dea-0fcac438f523', variable: 'MAVEN_SETTINGS_FILE')]){
+                configFileProvider([configFile(fileId: 'e1e9d5d0-3f70-410e-a096-38585ed36d99', variable: 'MAVEN_SETTINGS_FILE')]){
                 echo '.Initialising..'
 
                 sh '''
