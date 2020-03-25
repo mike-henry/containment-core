@@ -70,7 +70,7 @@ pipeline {
 
             echo 'Deploying.. '
             sh "mvn -s ${SETTINGS_XML} deploy -DskipTests=true"
-            }
+
         }
     }
 }
