@@ -67,9 +67,10 @@ pipeline {
             when {
                 branch 'develop'
             }
-
-            echo 'Deploying.. '
-            sh "mvn -s ${SETTINGS_XML} deploy -DskipTests=true"
+            steps {
+               echo 'Deploying.. '
+               sh "mvn -s ${SETTINGS_XML} deploy -DskipTests=true"
+            }
 
         }
     }
