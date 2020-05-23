@@ -1,0 +1,22 @@
+plugins {
+    id 'com.spx.gradle.general.containment-server'  version "0.0.2"
+}
+
+group = 'com.spx.containment'
+version = '0.0.2-SNAPSHOT'
+
+description = """"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile group: 'com.spx.containment', name: 'containment-core-api', version:'0.0.2-SNAPSHOT'
+    compile group: 'com.spx.containment', name: 'containment-jaxrs-spring-boot-starter', version:"1.0-SNAPSHOT"
+    compile group: 'com.spx.containment', name: 'containment-logging-spring-boot-starter', version:"0.0.1-SNAPSHOT"
+    compile group: 'org.neo4j', name: 'neo4j-ogm-core', version:'3.2.6'
+}
+
+springBoot {
+    mainClassName = 'com.spx.containment.core.ContainmentCoreApplication'
+}

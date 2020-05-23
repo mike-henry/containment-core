@@ -15,6 +15,9 @@ import org.junit.Test;
 @Slf4j
 public class JsonMappingTest {
 
+
+
+
   private final SubClassObjectMapper mapper = new SubClassObjectMapper();
 
 
@@ -48,7 +51,7 @@ public class JsonMappingTest {
 
     mapper.findClassesToRegister()
         .forEach(c -> {
-          log.info("class found {}", c.getName());
+      //    log.info("class found {}", c.getName());
         });
 
 

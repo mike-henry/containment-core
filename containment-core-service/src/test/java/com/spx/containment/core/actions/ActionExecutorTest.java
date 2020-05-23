@@ -1,6 +1,7 @@
 package com.spx.containment.core.actions;
 
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
@@ -11,7 +12,6 @@ import java.util.concurrent.Callable;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class ActionExecutorTest {
 
 
@@ -19,7 +19,7 @@ public class ActionExecutorTest {
     private Callable<Object> callable;
 
     @Before
-    public void setupMoocks() {
+    public void setupMocks() {
         callable = mock(Callable.class);
     }
 
@@ -28,7 +28,7 @@ public class ActionExecutorTest {
     public void basic() throws Exception {
         when(callable.call()).thenReturn(null);
         Object response = subject.call(callable);
-        assertTrue(response == null);
+        assertNull(response);
         verify(callable).call();
     }
 
@@ -37,37 +37,35 @@ public class ActionExecutorTest {
         String returnValue = "return value";
         when(callable.call()).thenReturn(returnValue);
         Object response = subject.call(callable);
-        assertTrue(response.equals(returnValue));
+        assertEquals(response, returnValue);
         verify(callable).call();
     }
 
     @Test
-    public void exceptionInCall() throws Exception {
+    public void exceptionInCall() {
 
         try {
             when(callable.call()).thenThrow(new Exception("wrong"));
             subject.call(callable);
             fail();
         } catch (Exception e) {
-            assertTrue(RuntimeException.class.isInstance(e));
-            assertTrue(e.getCause()
-                .getMessage()
-                .equals("wrong"));
+            assertTrue(e instanceof RuntimeException);
+            assertEquals("wrong", e.getCause()
+                .getMessage());
         }
 
     }
 
     @Test
-    public void runtimeExceptionInCall() throws Exception {
+    public void runtimeExceptionInCall() {
 
         try {
             when(callable.call()).thenThrow(new RuntimeException("wrong"));
             subject.call(callable);
             fail();
         } catch (Exception e) {
-            assertTrue(RuntimeException.class.isInstance(e));
-            assertTrue(e.getMessage()
-                .equals("wrong"));
+            assertTrue(e instanceof RuntimeException);
+            assertEquals("wrong", e.getMessage());
         }
 
     }

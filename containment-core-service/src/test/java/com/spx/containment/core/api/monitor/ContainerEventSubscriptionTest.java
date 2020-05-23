@@ -10,7 +10,6 @@ import javax.websocket.Session;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 public class ContainerEventSubscriptionTest {
 
   private ContainerServices mockContainerService;
@@ -98,8 +97,7 @@ public class ContainerEventSubscriptionTest {
     subject.addSubscription(container, session1);
 
     Assert.assertTrue(subject.getSubscriberSessions(containerChild)
-        .noneMatch(s -> "1".equals(s)));
-
+        .noneMatch(s -> "1".equals(s.getId())));
   }
 
 

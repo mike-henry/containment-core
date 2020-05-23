@@ -15,8 +15,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 public class MyTest {
 
 
-  private final String test = "";
-
   @Mock
   private Container c;
 
@@ -35,7 +33,7 @@ public class MyTest {
       javax.xml.bind.Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
       // unmarshal an instance document into a tree of Java content
       // objects composed of classes from the package.
-      MyTest unmarshalledObject = (MyTest) unmarshaller.unmarshal(
+      unmarshaller.unmarshal(
           new java.io.FileInputStream("filename.xml"));
     } catch (javax.xml.bind.JAXBException je) {
       je.printStackTrace();
@@ -47,7 +45,6 @@ public class MyTest {
 
       ioe.printStackTrace(pw);
       log.error("Error occurred causing exception {}", sw.toString());
-
     }
   }
 
